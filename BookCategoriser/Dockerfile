@@ -12,17 +12,15 @@ RUN apt-get install -y build-essential libgmp-dev
 COPY . /user/src/app/
 ARG SECRET_KEY_BASE 
 
-WORKDIR /usr/src/app
+WORKDIR /user/src/app
 
-# Copy the Gemfile and Gemfile.lock to the container
-COPY /usr/src/app
 # Set production environment
 ENV RAILS_ENV=production 
 ENV SECRET_KEY_BASE=$(SECRET_KEY_BASE)
 
-RUN gem install bundler:2.5.17
+RUN gem install bundler
 RUN bundle install
-RUN bundle exec rake db:create db:migrate --trace
+RUN bundle exec rake db:create db:migrate
 
 RUN rails assets:precompile
 

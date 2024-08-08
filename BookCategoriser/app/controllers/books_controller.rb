@@ -72,7 +72,7 @@ end
   
     if @book.update(params.require(:book).permit(:details))
       # Save the book successfully
-      redirect_to genre_book_url(@genre, @book)
+      redirect_to genre_books_path(@genre)
     else
       render :action => "edit"
     end

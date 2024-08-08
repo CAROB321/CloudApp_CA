@@ -17,11 +17,11 @@
         <% if @genre.books.any? %>
           <% @genre.books.each do |book| %>
             <hr />
-             <%= render book%>
+            <%= render book %>
             
             <div class="buttons">
               <%= link_to 'EDIT BOOK', edit_genre_book_path(@genre, @book), class: 'btn btn-outline-success btn-sm' %>
-              <%= button_to "DELETE BOOK", genre_book_path(@genre, book), method: :delete, class: 'btn btn-outline-danger btn-sm'  %>
+              <%= button_to 'DELETE BOOK', genre_book_path(@genre, book), method: :delete, class: 'btn btn-outline-danger btn-sm' %>
             </div>
           <% end %>
         <% else %>
