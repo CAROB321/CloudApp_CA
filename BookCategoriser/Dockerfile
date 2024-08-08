@@ -20,7 +20,7 @@ ENV SECRET_KEY_BASE=$(SECRET_KEY_BASE)
 
 RUN gem install bundler:2.5.17
 RUN bundle install
-RUN bundle exec rake db:create db:migrate
+RUN bundle exec rake db:create db:migrate --trace
 
 RUN rails assets:precompile
 
