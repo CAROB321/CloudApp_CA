@@ -12,7 +12,7 @@ RUN apt-get install -y build-essential libgmp-dev
 COPY . /user/src/app/
 ARG SECRET_KEY_BASE 
 
-WORKDIR /user/src/app
+WORKDIR ~/BookCategoriser
 
 # Set production environment
 ENV RAILS_ENV=production 
