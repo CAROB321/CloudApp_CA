@@ -12,13 +12,13 @@ RUN apt-get install -y build-essential libgmp-dev
 COPY . /user/src/app/
 ARG SECRET_KEY_BASE 
 
-WORKDIR ~/BookCategoriser
+WORKDIR /user/src/app
 
 # Set production environment
 ENV RAILS_ENV=production 
 ENV SECRET_KEY_BASE=$(SECRET_KEY_BASE)
 
-RUN gem install bundler
+RUN gem install bundler:2.5.17
 RUN bundle install
 RUN bundle exec rake db:create db:migrate
 
