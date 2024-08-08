@@ -9,7 +9,7 @@ executors:
 
 jobs:
   build:
-    working_directory: ~/BookCategoriser
+    working_directory: ~/
     docker:
       - image: cimg/ruby:3.3.4-node
     steps:
