@@ -12,7 +12,10 @@ RUN apt-get install -y build-essential libgmp-dev
 COPY . /user/src/app/
 ARG SECRET_KEY_BASE 
 
-WORKDIR /BookCatergoriser
+WORKDIR /app
+
+# Copy the Gemfile and Gemfile.lock to the container
+COPY BookCategoriser/Gemfile BookCategoriser/Gemfile.lock ./
 
 # Set production environment
 ENV RAILS_ENV=production 
